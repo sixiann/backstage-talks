@@ -38,7 +38,7 @@ const linksContainer = document.getElementById("links-container");
 
 data.forEach((item, index) => {
   const anchor = document.createElement("a");
-  anchor.href = `#section-${index}`;
+  anchor.href = `#section-${7 - index}`;
   anchor.textContent = `Issue #${7 - index}`;
   anchor.className = "issue-link";
 

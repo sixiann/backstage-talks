@@ -24,7 +24,26 @@ body {
 /* fixed positioned elements */
 div.fixed {
   position: fixed;
+}
+
+#links-container {
   bottom: 0;
+  right: 0;
+}
+
+#info-container {
+  bottom: 0;
+  left: 0;
+  width: 23%;
+}
+
+#title-container{
+  top: 0;
+  left: 0;
+}
+
+#email-container{
+  top: 0;
   right: 0;
 }
 
