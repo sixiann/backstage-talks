@@ -38,7 +38,7 @@ const linksContainer = document.getElementById("links-container");
 
 data.forEach((item, index) => {
   const anchor = document.createElement("a");
-  anchor.href = `#section-${7 - index}`;
+  anchor.href = `#section-${index}`;
   anchor.textContent = `Issue #${7 - index}`;
   anchor.className = "issue-link";
 
@@ -65,7 +65,7 @@ data.forEach((item, index) => {
   sectionsContainer.appendChild(section);
 });
 
-// scrolling effect
+// scrolling effect --> change background color
 gsap.registerPlugin(ScrollTrigger);
 
 const sections = gsap.utils.toArray(".section");
@@ -94,5 +94,16 @@ sections.forEach((section, i) => {
     onLeave: () => i === sections.length - 1 && switchColor("#000000"),
     onLeaveBack: () => switchColor(previousColor),
     id: i + 1,
+  });
+});
+
+// scrolling effect --> smooth scrolling between sections for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+      });
   });
 });
