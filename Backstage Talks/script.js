@@ -53,9 +53,9 @@ data.forEach((item, index) => {
   section.id = `section-${index}`;
   section.innerHTML = `
   
-        <div class="row vh-100">
+        <div class="row vh-100 less-margin">
             <div class="col-md-3"></div>
-            <div class="col-md-6 fluid flex-center flex-column p-5" id="cover">      
+            <div class="col-md-6 flex-center flex-column p-5">      
                 <img src="${item.imgUrl}" class="img-fluid">
                 ${item.text}
             </div>
@@ -66,7 +66,7 @@ data.forEach((item, index) => {
   sectionsContainer.appendChild(section);
 });
 
-// scrolling effect --> change background color
+// scrolling effect --> change background color and snap scroll
 gsap.registerPlugin(ScrollTrigger);
 
 const sections = gsap.utils.toArray(".section");
@@ -85,7 +85,7 @@ sections.forEach((section, i) => {
   const previousColor = sections[i - 1]
     ? sections[i - 1].dataset.bgcolor
     : "#000000";
-  console.log(previousColor);
+
   ScrollTrigger.create({
     trigger: section,
     start: "top center",
@@ -95,6 +95,9 @@ sections.forEach((section, i) => {
     onLeave: () => i === sections.length - 1 && switchColor("#000000"),
     onLeaveBack: () => switchColor(previousColor),
     id: i + 1,
+
+    //snapscroll
+    pin: window.innerWidth >= 768 ? true : false,
   });
 });
 
