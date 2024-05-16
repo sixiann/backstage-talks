@@ -54,12 +54,12 @@ data.forEach((item, index) => {
   section.innerHTML = `
   
         <div class="row vh-100 less-margin">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 flex-center flex-column p-5">      
+            <div class="col-md-3 col"></div>
+            <div class="col-md-6 col-10 flex-center flex-column p-5">      
                 <img src="${item.imgUrl}" class="img-fluid">
                 ${item.text}
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-3 col"></div>
         </div>
     `;
 
