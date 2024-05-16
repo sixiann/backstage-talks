@@ -80,6 +80,21 @@ const switchColor = (color) => {
   });
 };
 
+// scroll snapping only for big screens
+ScrollTrigger.matchMedia({
+  "(min-width: 1000px)": function() {
+    // ScrollTriggers for larger screens
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top",
+        end: "bottom",
+        //snapscroll
+        pin: true,
+      });
+    });
+  },
+});
 
 
 //change background color for each section
@@ -108,23 +123,6 @@ sections.forEach((section, i) => {
   //   pin: true,
   // });
 });
-
-// scroll snapping only for big screens
-ScrollTrigger.matchMedia({
-  "(min-width: 1000px)": function() {
-    // ScrollTriggers for larger screens
-    sections.forEach((section, i) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top",
-        end: "bottom",
-        //snapscroll
-        pin: true,
-      });
-    });
-  },
-});
-
 
 // scrolling effect --> smooth scrolling between sections for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
