@@ -89,11 +89,16 @@ div.fixed {
     text-align: center;
   }
 
-  #sections-container {
+  /* #sections-container {
     margin-top: -5rem;
-  }
+  } */
 
-  #info-container {
+  /* #info-container {
     margin-top: 70px;
+  } */
+
+  .section {
+    height: auto;
+    
   }
 }

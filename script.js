@@ -53,13 +53,13 @@ data.forEach((item, index) => {
   section.id = `section-${index}`;
   section.innerHTML = `
   
-        <div class="row vh-100">
-            <div class="col-md-3 col"></div>
-            <div class="col-md-6 col-10 flex-center flex-column p-5">      
+        <div class="row">
+            <div class="col-lg-3 "></div>
+            <div class="col-lg-6 flex-center flex-column p-5">      
                 <img src="${item.imgUrl}" class="img-fluid">
                 ${item.text}
             </div>
-            <div class="col-md-3 col"></div>
+            <div class="col-lg-3 "></div>
         </div>
     `;
 
@@ -80,6 +80,9 @@ const switchColor = (color) => {
   });
 };
 
+
+
+//change background color for each section
 sections.forEach((section, i) => {
   const color = section.dataset.bgcolor;
   const previousColor = sections[i - 1]
@@ -95,19 +98,33 @@ sections.forEach((section, i) => {
     onLeave: () => i === sections.length - 1 && switchColor("#e30512"),
     onLeaveBack: () => switchColor(previousColor),
     id: i + 1,
-
-    //snapscroll
-    // pin: window.innerWidth >= 768 ? true : false,
   });
 
-  ScrollTrigger.create({
-    trigger: section,
-    start: "top",
-    end: "bottom",
-    //snapscroll
-    pin: window.innerWidth >= 768 ? true : false,
-  });
+  // ScrollTrigger.create({
+  //   trigger: section,
+  //   start: "top",
+  //   end: "bottom",
+  //   //snapscroll
+  //   pin: true,
+  // });
 });
+
+// scroll snapping only for big screens
+ScrollTrigger.matchMedia({
+  "(min-width: 1000px)": function() {
+    // ScrollTriggers for larger screens
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top",
+        end: "bottom",
+        //snapscroll
+        pin: true,
+      });
+    });
+  },
+});
+
 
 // scrolling effect --> smooth scrolling between sections for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
