@@ -52,9 +52,10 @@ data.forEach((item, index) => {
   section.dataset.bgcolor = item.color;
   section.id = `section-${index}`;
   section.innerHTML = `
+  
         <div class="row vh-100">
             <div class="col-md-3"></div>
-            <div class="col-md-6 flex-center flex-column p-5">      
+            <div class="col-md-6 fluid flex-center flex-column p-5" id="cover">      
                 <img src="${item.imgUrl}" class="img-fluid">
                 ${item.text}
             </div>
@@ -98,12 +99,12 @@ sections.forEach((section, i) => {
 });
 
 // scrolling effect --> smooth scrolling between sections for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
 
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-      });
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
   });
 });

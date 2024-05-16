@@ -26,6 +26,11 @@ div.fixed {
   position: fixed;
 }
 
+#title-container {
+  top: 0;
+  left: 0;
+}
+
 #links-container {
   bottom: 0;
   right: 0;
@@ -37,27 +42,53 @@ div.fixed {
   width: 23%;
 }
 
-#title-container{
-  top: 0;
-  left: 0;
-}
-
-#email-container{
+#email-container {
   top: 0;
   right: 0;
 }
 
 /* add vertical spacing between links */
 #links-container div {
-  margin-bottom: 3px; 
+  margin-bottom: 3px;
 }
 
 /* links styling */
-.issue-link{
+.issue-link {
   color: black;
   font-size: large;
 }
 
-.issue-link:hover{
+.issue-link:hover {
   color: black;
+}
+
+/* media queries to hide elements for smaller screens*/
+@media screen and (max-width: 992px) {
+  #links-container {
+    display: none;
+  }
+
+  #title-container,
+  #info-container,
+  #email-container {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #sections-container {
+    margin-top: -5rem;
+  }
+
+  #info-container {
+    margin-top: 70px;
+  }
 }
