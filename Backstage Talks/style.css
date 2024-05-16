@@ -20,3 +20,25 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* fixed positioned elements */
+div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+/* add vertical spacing between links */
+#links-container div {
+  margin-bottom: 3px; 
+}
+
+/* links styling */
+.issue-link{
+  color: black;
+  font-size: large;
+}
+
+.issue-link:hover{
+  color: black;
+}
