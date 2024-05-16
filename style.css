@@ -6,13 +6,14 @@
 body {
   margin: 0;
   font-family: "Signika Negative", sans-serif, Arial;
-  background-color: black;
+  background-color: #e30512;
   color: white;
 }
 
 .section {
   width: 100%;
   height: 100vh;
+  
 }
 
 .flex-center {
@@ -61,10 +62,10 @@ div.fixed {
 .issue-link:hover {
   color: black;
 }
-
+/* 
 .less-margin{
   margin-top: -50%;
-}
+} */
 
 /* media queries to hide elements for smaller screens*/
 @media screen and (max-width: 992px) {

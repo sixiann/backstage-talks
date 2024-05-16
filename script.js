@@ -53,7 +53,7 @@ data.forEach((item, index) => {
   section.id = `section-${index}`;
   section.innerHTML = `
   
-        <div class="row vh-100 less-margin">
+        <div class="row vh-100">
             <div class="col-md-3 col"></div>
             <div class="col-md-6 col-10 flex-center flex-column p-5">      
                 <img src="${item.imgUrl}" class="img-fluid">
@@ -84,7 +84,7 @@ sections.forEach((section, i) => {
   const color = section.dataset.bgcolor;
   const previousColor = sections[i - 1]
     ? sections[i - 1].dataset.bgcolor
-    : "#000000";
+    : "#e30512";
 
   ScrollTrigger.create({
     trigger: section,
@@ -92,10 +92,18 @@ sections.forEach((section, i) => {
     end: "bottom center",
     onEnter: () => switchColor(color),
     onEnterBack: () => i === sections.length - 1 && switchColor(color),
-    onLeave: () => i === sections.length - 1 && switchColor("#000000"),
+    onLeave: () => i === sections.length - 1 && switchColor("#e30512"),
     onLeaveBack: () => switchColor(previousColor),
     id: i + 1,
 
+    //snapscroll
+    // pin: window.innerWidth >= 768 ? true : false,
+  });
+
+  ScrollTrigger.create({
+    trigger: section,
+    start: "top",
+    end: "bottom",
     //snapscroll
     pin: window.innerWidth >= 768 ? true : false,
   });
